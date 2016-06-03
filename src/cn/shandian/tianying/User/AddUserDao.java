@@ -15,7 +15,14 @@ public class AddUserDao {
 	
 	public void addUser()
 	{
+		
+		
 	///	transactionTemplate.execute(arg0)
 		//transactionTemplate.execute(arg0)
+	}
+	
+	public void delUser()
+	{
+		
 	}
 }
