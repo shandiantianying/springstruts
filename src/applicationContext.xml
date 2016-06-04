@@ -45,12 +45,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	</bean>
 	<!-- <bean id="user" class="cn.shandian.tianying.User.User" /> -->
 
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<!-- mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
-		<property name="mapperInterface" value="cn.shandian.tianying.inter.IUser" />
-	</bean>
+
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -68,26 +63,33 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 			<ref bean="transactionTemplate" />
 		</property>
 	</bean>
+	
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<!-- mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
+		<property name="mapperInterface" value="cn.shandian.tianying.inter.IUser" />
+	</bean>
 
- <tx:advice id="txAdvice" transaction-manager="transactionManager"> 
-        <tx:attributes> 
-            <tx:method name="add*" propagation="REQUIRED" /> 
-            <tx:method name="delete*" propagation="REQUIRED" /> 
-            <tx:method name="update*" propagation="REQUIRED" /> 
-            <tx:method name="add*" propagation="REQUIRED" /> 
-            <!-- <tx:method name="*" propagation="true" />--> 
-        </tx:attributes> 
- 
-    </tx:advice> 
- 
-    <aop:config> 
-        <aop:pointcut id="allManagerMethod" 
-            expression="execution(* com.service.*.*(..))" /> 
-        <aop:advisor advice-ref="txAdvice" 
-            pointcut-ref="allManagerMethod" /> 
-    </aop:config>  
 
-<!-- 使用annotation注解方式配置事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<!-- <tx:method name="*" propagation="true" /> -->
+		</tx:attributes>
+
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="allManagerMethod" expression="execution(* com.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" />
+	</aop:config>
+
+	<!-- 使用annotation注解方式配置事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

@@ -10,5 +10,10 @@
 			<result name="success">/show.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
+		<action name="registerAction" class="cn.shandian.tianying.User.LoginAction"
+			method="register">
+			<result name="success">/show.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
 	</package>
 </struts>

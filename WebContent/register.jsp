@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="LoginAction.action" method ="post">
+<form action="registerAction.action" method ="post">
 用户名:<input type ="text" name = "name" >
 <br>
 密码:<input type ="password" name = "pwd" >
 <br>
-<input type = "submit" name ="submit" value = "登录">
+年龄:<input type ="text" name = "userAge" >
+<br>
+地址:<input type ="text" name = "userAddress" >
+<br>
+<input type = "submit" name ="submit" value = "注册">
 </form>
-<a href = "register.jsp">注册用户</a>
 </body>
 </html>

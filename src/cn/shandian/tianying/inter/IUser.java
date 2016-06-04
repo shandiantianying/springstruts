@@ -7,6 +7,8 @@ import cn.shandian.tianying.User.User;
 
 public interface IUser {
 	public User selectUserByID(int id);
+	
+	public User selectUserByUser(User user);
 
 	public List<User> selectUsers(String userName);
 
