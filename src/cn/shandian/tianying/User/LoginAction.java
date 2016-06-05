@@ -8,61 +8,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import cn.shandian.tianying.aop.Service;
 import cn.shandian.tianying.inter.IUser;
 import cn.shandian.tianying.utils.ApplicationContextUtils;
+import cn.shandian.tianying.vo.UserRegisterFormBean;
 
 public class LoginAction {
-	private String name;
-	private String pwd;
-	private String userAge;
-	private String userAddress;
+	private UserRegisterFormBean userRegisterFormBean;
 
-	public String getUserAddress() {
-		return userAddress;
+	public UserRegisterFormBean getUserRegisterFormBean() {
+		return userRegisterFormBean;
 	}
 
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
+	public void setUserRegisterFormBean(UserRegisterFormBean userRegisterFormBean) {
+		this.userRegisterFormBean = userRegisterFormBean;
 	}
-
-	public String getUserAge() {
-		return userAge;
-	}
-
-	public void setUserAge(String userAge) {
-		this.userAge = userAge;
-	}
-
-	public String getUserPassword() {
-		return userPassword;
-	}
-
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
-
-	private String userPassword;
 
 	public LoginAction() {
 		System.out.println("constructor...");
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
-	public boolean checkUser(User user) {
-		return false;
 	}
 
 	public String register() {
@@ -71,10 +31,10 @@ public class LoginAction {
 		// IUser mapper = (IUser) ctx.getBean("userMapper");
 		IUser mapper = ApplicationContextUtils.getIUser();
 		User user = new User();
-		user.setUserAge(Integer.parseInt(pwd));
-		user.setUserName(name);
+		user.setUserAge(userRegisterFormBean.getUserAge());
+		user.setUserName(userRegisterFormBean.getName());
 
-		user.setUserAddress(userAddress);
+		user.setUserAddress(userRegisterFormBean.getUserAddress());
 		mapper.addUser(user);
 
 		return "success";
@@ -86,17 +46,18 @@ public class LoginAction {
 	}
 
 	public String execute() {
-		System.out.println("--------------------------" + this.name);
-		System.out.println("--------------------------" + this.pwd);
+		System.out.println("--------------------------" + userRegisterFormBean.getName());
+		System.out.println("--------------------------" + userRegisterFormBean.getUserAge());
 		// if (!name.equals("admin")) {
 		// return "input";
 		// }
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-//		IUser mapper = (IUser) ctx.getBean("userMapper");
+		// ApplicationContext ctx = new
+		// ClassPathXmlApplicationContext("applicationContext.xml");
+		// IUser mapper = (IUser) ctx.getBean("userMapper");
 		IUser mapper = ApplicationContextUtils.getIUser();
 		User user = new User();
-		user.setUserAge(Integer.parseInt(pwd));
-		user.setUserName(name);
+		user.setUserAge(userRegisterFormBean.getUserAge());
+		user.setUserName(userRegisterFormBean.getName());
 		User user1 = mapper.selectUserByUser(user);
 
 		if (user1 != null) {

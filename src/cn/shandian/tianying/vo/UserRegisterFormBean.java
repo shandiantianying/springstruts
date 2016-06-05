@@ -1,40 +1,32 @@
-package cn.shandian.tianying.User;
+package cn.shandian.tianying.vo;
 
-public class User {
+public class UserRegisterFormBean {
 	private int id;
-	private String userName;
+	private String name;
 	public int getId() {
 		return id;
 	}
- 
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
 	public int getUserAge() {
 		return userAge;
 	}
-
 	public void setUserAge(int userAge) {
 		this.userAge = userAge;
 	}
-
 	public String getUserAddress() {
 		return userAddress;
 	}
-
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
 	}
-
 	private int userAge;
 	private String userAddress;
 }

@@ -8,13 +8,13 @@
 </head>
 <body>
 <form action="registerAction.action" method ="post">
-用户名:<input type ="text" name = "name" >
+用户名:<input type ="text" name = "userRegisterFormBean.name" >
 <br>
-密码:<input type ="password" name = "pwd" >
+密码:<input type ="password" name = "userRegisterFormBean.pwd" >
 <br>
-年龄:<input type ="text" name = "userAge" >
+年龄:<input type ="text" name = "userRegisterFormBean.userAge" >
 <br>
-地址:<input type ="text" name = "userAddress" >
+地址:<input type ="text" name = "userRegisterFormBean.userAddress" >
 <br>
 <input type = "submit" name ="submit" value = "注册">
 </form>
