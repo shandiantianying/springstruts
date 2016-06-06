@@ -16,7 +16,7 @@
 	if (username == null) {
 		out.println("没有登录");
 	} else {
-		out.println("已登录");
+		out.println(username+"已登录");
 	}
 %>
 	<a href="logout">注销</a>

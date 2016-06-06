@@ -66,6 +66,9 @@ public class LoginAction extends ActionSupport {
 		// return "input";
 		// }
 	}
+	public String login(){
+		return "input";
+	}
 
 	public String execute() {
 		System.out.println("--------------------------" + userRegisterFormBean.getName());

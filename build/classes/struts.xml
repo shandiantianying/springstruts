@@ -5,6 +5,18 @@
 <struts>
 	<constant name="struts.action.extension" value="do,action," />
 	<package name="default" namespace="/" extends="struts-default">
+	
+		<interceptors>
+			<interceptor name="loginInterceptor" class="cn.shandian.tianying.interceptor.AuthorizeInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+	<action name="login" class="cn.shandian.tianying.User.LoginAction"
+			method="login">
+			<result name="input">/index.jsp</result>
+		</action>
 		<action name="LoginAction" class="cn.shandian.tianying.User.LoginAction"
 			method="execute">
 			<result name="success">/show.jsp</result>
@@ -16,9 +28,11 @@
 			<result name="input">/index.jsp</result>
 			<result name="register">/register.jsp</result>
 		</action>
-		
-		        <action name="logout" class="cn.shandian.tianying.User.LoginAction" method="Logout">
-            <result name="logout">/index.jsp</result>
-        </action>
+
+		<action name="logout" class="cn.shandian.tianying.User.LoginAction"
+			method="Logout">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="logout">/index.jsp</result>
+		</action>
 	</package>
 </struts>
