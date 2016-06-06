@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="selectUsers" parameterType="string" resultMap="resultListUser">
-		select * from user where userName like #{userName}
+		select * from user where userName = #{userName}
 	</select>
 
 

@@ -14,6 +14,11 @@
 			method="register">
 			<result name="success">/show.jsp</result>
 			<result name="input">/index.jsp</result>
+			<result name="register">/register.jsp</result>
 		</action>
+		
+		        <action name="logout" class="cn.shandian.tianying.User.LoginAction" method="Logout">
+            <result name="logout">/index.jsp</result>
+        </action>
 	</package>
 </struts>
