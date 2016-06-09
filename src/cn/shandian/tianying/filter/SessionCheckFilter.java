@@ -47,7 +47,6 @@ public class SessionCheckFilter implements Filter {
 		String uri = request.getServletPath() + (request.getPathInfo() == null ? "" : request.getPathInfo());
 		String temp = request.getRequestURI();
 		temp = temp.substring(request.getContextPath().length() + 1);
-		// System.out.println("ÊÇ·ñ°üÀ¨£º"+uri+";"+notCheckURLList+"=="+notCheckURLList.contains(uri));
 		return notCheckURLList.contains(uri);
 	}
 

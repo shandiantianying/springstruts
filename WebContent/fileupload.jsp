@@ -49,7 +49,9 @@
 
 
 
-
+ <h2>文件下载内容：</h2><br/>  
+    Dream.jpg:<a href="FileDownload.action?number=1">点击下载</a><br/>  
+    客户端税务局.rar:<a href="FileDownload.action?number=2">点击下载2</a>  
 
 
 
